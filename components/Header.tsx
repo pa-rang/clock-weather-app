@@ -9,7 +9,7 @@ const Styled = {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 40px;
+    padding: 0 40px;
     height: 72px;
   `,
 
@@ -18,7 +18,7 @@ const Styled = {
     border-radius: 4px;
     color: ${colors.gray90};
     background-color: ${colors.gray20};
-
+    cursor: pointer;
     &:hover {
       background-color: ${colors.gray30};
     }
