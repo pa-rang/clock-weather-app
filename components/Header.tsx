@@ -29,10 +29,12 @@ function Header() {
 
   return (
     <Styled.Root>
-      <div>{theme}</div>
-      <Styled.DarkModeToggle onClick={() => toggleTheme()}>
-        Light
-      </Styled.DarkModeToggle>
+      <div />
+      <div>
+        <Styled.DarkModeToggle onClick={() => toggleTheme()}>
+          {theme}
+        </Styled.DarkModeToggle>
+      </div>
     </Styled.Root>
   );
 }
