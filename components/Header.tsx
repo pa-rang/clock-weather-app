@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { colors } from "../constants/colors";
 import useToggleTheme from "../hooks/useToggleTheme";
+import { css, Global } from "@emotion/react";
 
 const Styled = {
   Root: styled.div`
@@ -27,6 +28,8 @@ const Styled = {
 function Header() {
   const [theme, toggleTheme] = useToggleTheme();
 
+  const backgroundColor = theme === "light" ? "#fff" : "#171717";
+
   return (
     <Styled.Root>
       <div />
@@ -35,6 +38,15 @@ function Header() {
           {theme}
         </Styled.DarkModeToggle>
       </div>
+      <Global
+        styles={css`
+          html,
+          body {
+            background-color: ${backgroundColor};
+            transition: 0.3s;
+          }
+        `}
+      />
     </Styled.Root>
   );
 }

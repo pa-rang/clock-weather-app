@@ -1,3 +1,11 @@
+export const light = {
+  background: "#fff",
+};
+
+export const dark = {
+  background: "#000",
+};
+
 export const colors = {
   green40: "#dff6e7",
   green50: "#13bc4c",

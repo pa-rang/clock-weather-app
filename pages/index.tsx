@@ -6,7 +6,6 @@ function Home() {
     <>
       <Header />
       <div>Hello, Next</div>
-      <div></div>
     </>
   );
 }
