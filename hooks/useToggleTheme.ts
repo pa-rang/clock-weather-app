@@ -1,6 +1,5 @@
 import React from "react";
-
-type ThemeType = "dark" | "light";
+import { ThemeType } from "../lib/types";
 
 const useToggleTheme = (): [ThemeType, () => void] => {
   const [theme, setTheme] = React.useState<ThemeType>("light");

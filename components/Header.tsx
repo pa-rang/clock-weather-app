@@ -1,9 +1,10 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../lib/constants/colors";
 import useToggleTheme from "../hooks/useToggleTheme";
 import { css, Global } from "@emotion/react";
 import GoToGithub from "./GoToGithub";
+import { ThemeType } from "../lib/types";
 
 const Styled = {
   Root: styled.div`
@@ -31,9 +32,12 @@ const Styled = {
   `,
 };
 
-function Header() {
-  const [theme, toggleTheme] = useToggleTheme();
+type Props = {
+  theme: ThemeType;
+  toggleTheme: () => void;
+};
 
+function Header({ theme, toggleTheme }: Props): ReactElement {
   const backgroundColor = theme === "light" ? "#fff" : "#171717";
   const fontColor = theme === "light" ? "#202020" : "#fff";
 
