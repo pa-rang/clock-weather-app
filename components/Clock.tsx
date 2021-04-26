@@ -12,8 +12,7 @@ const Styled = {
     border: 1px solid ${colors.gray40};
     & > div {
       position: relative;
-      height: 2px;
-      border-radius: 1px;
+      border-radius: 2px;
       transform-origin: 100%;
     }
   `,
@@ -22,15 +21,17 @@ const Styled = {
     top: 100px;
     left: 40px;
     width: 60px;
-    background-color: red;
+    height: 4px;
+    background-color: ${colors.gray50};
     transform: ${({ hourDegree }) => `rotate(${hourDegree}deg)`};
   `,
 
   MunuteHand: styled.div<{ minuteDegree: number }>`
     top: 98px;
-    left: 40px;
-    width: 60px;
-    background-color: yellow;
+    left: 20px;
+    width: 80px;
+    height: 3px;
+    background-color: ${colors.gray70};
     transform: ${({ minuteDegree }) => `rotate(${minuteDegree}deg)`};
   `,
 
@@ -38,7 +39,8 @@ const Styled = {
     top: 96px;
     left: 10px;
     width: 90px;
-    background-color: blue;
+    height: 2px;
+    background-color: ${colors.green50};
     transform: ${({ secondDegree }) => `rotate(${secondDegree}deg)`};
   `,
 };
