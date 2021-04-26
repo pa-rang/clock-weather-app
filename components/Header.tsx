@@ -11,6 +11,11 @@ const Styled = {
     align-items: center;
     padding: 0 40px;
     height: 72px;
+    div:nth-of-type(2) {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
   `,
 
   DarkModeToggle: styled.div`
@@ -23,6 +28,12 @@ const Styled = {
       background-color: ${colors.gray30};
     }
   `,
+
+  GoToGithub: styled.img`
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+  `,
 };
 
 function Header() {
@@ -34,6 +45,18 @@ function Header() {
     <Styled.Root>
       <div />
       <div>
+        <a
+          href="https://github.com/pa-rang/clock-weather-app"
+          target="_blank"
+          style={{ height: "24px" }}
+        >
+          <Styled.GoToGithub
+            src={`/assets/icons/github-logo-${
+              theme === "dark" ? "light" : "black"
+            }.png`}
+            alt="github"
+          />
+        </a>
         <Styled.DarkModeToggle onClick={() => toggleTheme()}>
           {theme}
         </Styled.DarkModeToggle>
