@@ -7,7 +7,7 @@ const Styled = {
     & > img {
       width: ${({ size }) => `${size}px`};
       height: ${({ size }) => `${size}px`};
-      margin-right: 12px;
+      margin: 0 16px;
     }
   `,
 };

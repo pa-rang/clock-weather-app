@@ -7,9 +7,8 @@ import Weather from "../components/Weather";
 
 const Styled = {
   Root: styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
+    max-width: 640px;
   `,
 };
 
@@ -18,9 +17,12 @@ function Home() {
     <>
       <Header />
       <Styled.Root>
-        <Clock />
-        <Weather />
-        <Box />
+        <Box>
+          <Clock />
+        </Box>
+        <Box>
+          <Weather />
+        </Box>
       </Styled.Root>
     </>
   );

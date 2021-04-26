@@ -4,10 +4,13 @@ import { colors } from "../../lib/constants/colors";
 
 const Styled = {
   Root: styled.div`
-    width: 320px;
-    max-width: 640px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 36px 16px;
     min-height: 320px;
-    border: 1px solid ${colors.blue40};
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   `,
 };
 
