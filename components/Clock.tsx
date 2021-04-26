@@ -40,6 +40,7 @@ const Styled = {
     left: 10px;
     width: 90px;
     height: 2px;
+    transition: 0.2s;
     background-color: ${colors.green50};
     transform: ${({ secondDegree }) => `rotate(${secondDegree}deg)`};
   `,

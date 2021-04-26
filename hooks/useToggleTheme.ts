@@ -4,7 +4,6 @@ type ThemeType = "dark" | "light";
 
 const useToggleTheme = (): [ThemeType, () => void] => {
   const [theme, setTheme] = React.useState<ThemeType>("light");
-  console.log(`theme`, theme);
 
   const toggleTheme = () => {
     if (theme === "light") {

@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import Clock from "../components/Clock";
 import Header from "../components/Header";
+import Weather from "../components/Weather";
 
 const Styled = {
   Root: styled.div`
@@ -17,6 +18,7 @@ function Home() {
       <Header />
       <Styled.Root>
         <Clock />
+        <Weather />
       </Styled.Root>
     </>
   );
