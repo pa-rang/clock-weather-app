@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { colors } from "../lib/constants/colors";
 import useToggleTheme from "../hooks/useToggleTheme";
 import { css, Global } from "@emotion/react";
+import GoToGithub from "./GoToGithub";
 
 const Styled = {
   Root: styled.div`
@@ -28,35 +29,19 @@ const Styled = {
       background-color: ${colors.gray30};
     }
   `,
-
-  GoToGithub: styled.img`
-    width: 24px;
-    height: 24px;
-    margin-right: 12px;
-  `,
 };
 
 function Header() {
   const [theme, toggleTheme] = useToggleTheme();
 
   const backgroundColor = theme === "light" ? "#fff" : "#171717";
+  const fontColor = theme === "light" ? "#202020" : "#fff";
 
   return (
     <Styled.Root>
       <div />
       <div>
-        <a
-          href="https://github.com/pa-rang/clock-weather-app"
-          target="_blank"
-          style={{ height: "24px" }}
-        >
-          <Styled.GoToGithub
-            src={`/assets/icons/github-logo-${
-              theme === "dark" ? "light" : "black"
-            }.png`}
-            alt="github"
-          />
-        </a>
+        <GoToGithub theme={theme} />
         <Styled.DarkModeToggle onClick={() => toggleTheme()}>
           {theme}
         </Styled.DarkModeToggle>
@@ -66,6 +51,7 @@ function Header() {
           html,
           body {
             background-color: ${backgroundColor};
+            color: ${fontColor};
             transition: 0.3s;
           }
         `}
