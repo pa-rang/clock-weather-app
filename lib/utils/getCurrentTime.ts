@@ -1,6 +1,15 @@
 import { months } from "../constants/months";
 
-export const getCurrentTime = () => {
+type ReturnType = {
+  year: number;
+  month: string;
+  day: number;
+  hour: number;
+  minute: number;
+  second: number;
+};
+
+export const getCurrentTime = (): ReturnType => {
   const currentTime = new Date();
 
   const month = months[currentTime.getMonth()]; // 시간, 월만 let으로 지정

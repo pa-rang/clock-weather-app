@@ -23,8 +23,6 @@ const useToggleTheme = (): [ThemeType, () => void] => {
       "theme"
     ) as ThemeType | null;
 
-    console.log(`currentTheme`, currentTheme);
-
     if (!currentTheme) {
       setTheme("light");
     } else {
