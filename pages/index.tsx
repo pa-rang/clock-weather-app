@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 import Clock from "../components/Clock";
+import Box from "../components/common/Box";
 import Header from "../components/Header";
 import Weather from "../components/Weather";
 
@@ -19,6 +20,7 @@ function Home() {
       <Styled.Root>
         <Clock />
         <Weather />
+        <Box />
       </Styled.Root>
     </>
   );
