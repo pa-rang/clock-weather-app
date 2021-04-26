@@ -1,7 +1,7 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useMemo } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../lib/constants/colors";
-import { getCurrentTime } from "../lib/utils/getCurrentTime";
+import { useCurrentTime } from "../hooks/useCurrentTime";
 
 const Styled = {
   Root: styled.div`
@@ -44,12 +44,17 @@ const Styled = {
 };
 
 function Clock(): ReactElement {
-  const { hour, minute, second } = getCurrentTime();
-  console.log(`hour, minute, second`, hour, minute, second);
+  const { hour, minute, second } = useCurrentTime();
 
-  const hourDegree = (hour + minute / 60) * (360 / 12) + 90;
-  const minuteDegree = (minute + second / 60) * (360 / 60) + 90;
-  const secondDegree = second * (360 / 60) + 90;
+  const hourDegree = useMemo(() => (hour + minute / 60) * (360 / 12) + 90, [
+    hour,
+    minute,
+  ]);
+  const minuteDegree = useMemo(() => (minute + second / 60) * (360 / 60) + 90, [
+    minute,
+    second,
+  ]);
+  const secondDegree = useMemo(() => second * (360 / 60) + 90, [second]);
 
   return (
     <Styled.Root>
