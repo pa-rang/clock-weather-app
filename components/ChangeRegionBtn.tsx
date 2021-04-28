@@ -16,10 +16,12 @@ const Styled = {
   `,
 };
 
-interface Props {}
+interface Props {
+  handleClick: () => void;
+}
 
-function ChangeRegionBtn({}: Props): ReactElement {
-  return <Styled.Root>지역 바꾸기</Styled.Root>;
+function ChangeRegionBtn({ handleClick }: Props): ReactElement {
+  return <Styled.Root onClick={() => handleClick()}>지역 바꾸기</Styled.Root>;
 }
 
 export default ChangeRegionBtn;
