@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import useSWR from "swr";
 import { getCurrentWeather } from "../lib/api";
 import { ThemeType } from "../lib/types";
+import ChangeRegionBtn from "./ChangeRegionBtn";
 import Box from "./common/Box";
 
 interface Props {
@@ -15,7 +16,7 @@ function Weather({ theme }: Props): ReactElement {
   const temperatures = (data?.main.temp - ABS_ZERO).toFixed(2);
 
   return (
-    <Box title="날씨" theme={theme}>
+    <Box title="날씨" theme={theme} button={<ChangeRegionBtn />}>
       <div>
         <div>{data?.name}</div>
         <div>{temperatures}°C</div>

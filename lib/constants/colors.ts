@@ -31,6 +31,7 @@ export const colors = {
   gray10: "#fcfcfd",
   white: "#ffffff",
   black: "#000000",
+  primary: "#50d5c1",
 } as const;
 
 export type SemanticColor = "positive" | "informative" | "negative" | "notice";
