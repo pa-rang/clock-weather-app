@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import styled from "@emotion/styled";
+import { ThemeType } from "../lib/types";
 
 const Styled = {
   Root: styled.a<{ size: number }>`
@@ -13,7 +14,7 @@ const Styled = {
 };
 
 type Props = {
-  theme?: "light" | "dark";
+  theme?: ThemeType;
   size?: number;
 };
 

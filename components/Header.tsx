@@ -1,7 +1,6 @@
 import React, { ReactElement } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../lib/constants/colors";
-import useToggleTheme from "../hooks/useToggleTheme";
 import { css, Global } from "@emotion/react";
 import GoToGithub from "./GoToGithub";
 import { ThemeType } from "../lib/types";
