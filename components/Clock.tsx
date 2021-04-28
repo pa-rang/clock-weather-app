@@ -2,6 +2,8 @@ import React, { ReactElement, useMemo } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../lib/constants/colors";
 import { useCurrentTime } from "../hooks/useCurrentTime";
+import { ThemeType } from "../lib/types";
+import Box from "./common/Box";
 
 const Styled = {
   Root: styled.div`
@@ -45,7 +47,11 @@ const Styled = {
   `,
 };
 
-function Clock(): ReactElement {
+interface Props {
+  theme: ThemeType;
+}
+
+function Clock({ theme }: Props): ReactElement {
   const { hour, minute, second } = useCurrentTime();
 
   const hourDegree = useMemo(() => (hour + minute / 60) * (360 / 12) + 90, [
@@ -59,11 +65,13 @@ function Clock(): ReactElement {
   const secondDegree = useMemo(() => second * (360 / 60) + 90, [second]);
 
   return (
-    <Styled.Root>
-      <Styled.HourHand hourDegree={hourDegree} />
-      <Styled.MunuteHand minuteDegree={minuteDegree} />
-      <Styled.SecondHand secondDegree={secondDegree} />
-    </Styled.Root>
+    <Box title="시계" theme={theme}>
+      <Styled.Root>
+        <Styled.HourHand hourDegree={hourDegree} />
+        <Styled.MunuteHand minuteDegree={minuteDegree} />
+        <Styled.SecondHand secondDegree={secondDegree} />
+      </Styled.Root>
+    </Box>
   );
 }
 

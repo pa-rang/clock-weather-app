@@ -17,6 +17,9 @@ const Styled = {
 
   Header: styled.div`
     padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   `,
 
   Title: styled.div`
@@ -34,13 +37,15 @@ type Props = {
   title: string;
   theme: ThemeType;
   children?: React.ReactNode;
+  button?: ReactElement;
 };
 
-function Box({ title, children, theme }: Props): ReactElement {
+function Box({ title, children, theme, button }: Props): ReactElement {
   return (
     <Styled.Root theme={theme}>
       <Styled.Header>
         <Styled.Title>{title}</Styled.Title>
+        {button}
       </Styled.Header>
       <Styled.Contents>{children}</Styled.Contents>
     </Styled.Root>

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
+import ChangeRegionBtn from "../components/ChangeRegionBtn";
 import Clock from "../components/Clock";
 import Box from "../components/common/Box";
 import Header from "../components/Header";
@@ -20,12 +21,8 @@ function Home() {
     <>
       <Header theme={theme} toggleTheme={toggleTheme} />
       <Styled.Root>
-        <Box title="시계" theme={theme}>
-          <Clock />
-        </Box>
-        <Box title="날씨" theme={theme}>
-          <Weather />
-        </Box>
+        <Clock theme={theme} />
+        <Weather theme={theme} />
       </Styled.Root>
     </>
   );
