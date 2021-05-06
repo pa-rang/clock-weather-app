@@ -14,7 +14,7 @@ interface Props {
 
 function Weather({ theme }: Props): ReactElement {
   const [isOpenModal, setIsOpenModal] = React.useState<boolean>(false);
-  console.log("isOpenModal :>> ", isOpenModal);
+  console.log("isOpenModal", isOpenModal);
 
   const { data, error } = useSWR("/weather", () => getCurrentWeather("seoul"));
 
