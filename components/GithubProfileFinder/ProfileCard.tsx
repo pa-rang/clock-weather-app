@@ -16,6 +16,10 @@ function ProfileCard(): ReactElement {
     return <div>Github 닉네임을 검색해보세요!</div>;
   }
 
+  if (userData === undefined) {
+    return <div>Loading</div>;
+  }
+
   return (
     <div>
       <img src={userData?.avatar_url} />
