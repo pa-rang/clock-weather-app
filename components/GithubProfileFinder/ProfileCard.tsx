@@ -2,6 +2,19 @@ import { useRouter } from "next/router";
 import { ReactElement } from "react";
 import useSWR from "swr";
 import { getGithubProfile } from "../../lib/api";
+import styled from "@emotion/styled";
+import { colors } from "../../lib/constants/colors";
+
+const Styled = {
+  Root: styled.div`
+    & > img {
+      max-width: 200px;
+      width: 100%;
+      border-radius: 50%;
+      border: 1px solid ${colors.gray30};
+    }
+  `,
+};
 
 function ProfileCard(): ReactElement {
   const {
@@ -21,9 +34,9 @@ function ProfileCard(): ReactElement {
   }
 
   return (
-    <div>
+    <Styled.Root>
       <img src={userData?.avatar_url} />
-    </div>
+    </Styled.Root>
   );
 }
 

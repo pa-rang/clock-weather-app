@@ -3,6 +3,21 @@ import { ThemeType } from "../../lib/types";
 import Box from "../common/Box";
 import { useRouter } from "next/router";
 import ProfileCard from "./ProfileCard";
+import styled from "@emotion/styled";
+import { colors } from "../../lib/constants/colors";
+
+const Styled = {
+  Input: styled.input<{ theme: ThemeType }>`
+    width: calc(100% - 48px);
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 0 12px;
+    background-color: ${({ theme }) =>
+      theme === "dark" ? colors.gray70 : colors.gray20};
+  `,
+};
 
 interface Props {
   theme: ThemeType;
@@ -28,7 +43,12 @@ function GithubProfileFinder({ theme }: Props): ReactElement {
   return (
     <Box title="Github Profile Finder" theme={theme}>
       <form onSubmit={handleSubmit}>
-        <input value={nickname} onChange={handleChange} />
+        <Styled.Input
+          value={nickname}
+          onChange={handleChange}
+          theme={theme}
+          placeholder="닉네임을 검색해보세요."
+        />
         <ProfileCard />
       </form>
     </Box>
