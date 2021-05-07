@@ -16,7 +16,7 @@ function Weather({ theme }: Props): ReactElement {
   const [isOpenModal, setIsOpenModal] = React.useState<boolean>(false);
   console.log("isOpenModal", isOpenModal);
 
-  const { data, error } = useSWR("/weather", () => getCurrentWeather("seoul"));
+  const { data } = useSWR("/weather", () => getCurrentWeather("seoul"));
 
   const ABS_ZERO = 273.15;
   const temperatures = (data?.main.temp - ABS_ZERO).toFixed(2);

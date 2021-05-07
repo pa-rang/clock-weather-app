@@ -13,3 +13,8 @@ export const getCurrentWeather = async (cityName: string) => {
 
   return data;
 };
+
+export const getGithubProfile = async (nickname: string) => {
+  const { data } = await axios.get(`https://api.github.com/users/${nickname}`);
+  return data;
+};
