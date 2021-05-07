@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { months } from "../lib/constants/months";
 
-type ReturnType = {
+interface ReturnType {
   year: number;
   month: string;
   day: number;
   hour: number;
   minute: number;
   second: number;
-};
+}
 
 export const useCurrentTime = (): ReturnType => {
   const [currentTime, setCurrentTime] = useState(new Date());

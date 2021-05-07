@@ -65,7 +65,7 @@ function Clock({ theme }: Props): ReactElement {
   const secondDegree = useMemo(() => second * (360 / 60) + 90, [second]);
 
   return (
-    <Box title="시계" theme={theme}>
+    <Box title="시계" theme={theme} center>
       <Styled.Root>
         <Styled.HourHand hourDegree={hourDegree} />
         <Styled.MunuteHand minuteDegree={minuteDegree} />

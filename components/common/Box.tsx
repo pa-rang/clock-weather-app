@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import styled from "@emotion/styled";
 import { colors } from "../../lib/constants/colors";
 import { ThemeType } from "../../lib/types";
+import { css } from "@emotion/react";
 
 const Styled = {
   Root: styled.div<{ theme: ThemeType }>`
@@ -27,8 +28,15 @@ const Styled = {
     font-weight: 600;
   `,
 
-  Contents: styled.div`
-    padding: 24px;
+  Contents: styled.div<{ center?: boolean }>`
+    padding: 0 24px 24px 24px;
+    ${({ center }) =>
+      center &&
+      css`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      `}
   `,
 };
 
@@ -37,16 +45,17 @@ type Props = {
   theme: ThemeType;
   children?: React.ReactNode;
   button?: ReactElement;
+  center?: boolean;
 };
 
-function Box({ title, children, theme, button }: Props): ReactElement {
+function Box({ title, children, theme, button, center }: Props): ReactElement {
   return (
     <Styled.Root theme={theme}>
       <Styled.Header>
         <Styled.Title>{title}</Styled.Title>
         {button}
       </Styled.Header>
-      <Styled.Contents>{children}</Styled.Contents>
+      <Styled.Contents center={center}>{children}</Styled.Contents>
     </Styled.Root>
   );
 }
