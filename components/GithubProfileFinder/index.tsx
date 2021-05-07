@@ -1,25 +1,8 @@
 import React, { ReactElement } from "react";
-import useSWR from "swr";
-import { getGithubProfile } from "../lib/api";
-import { ThemeType } from "../lib/types";
-import Box from "./common/Box";
+import { ThemeType } from "../../lib/types";
+import Box from "../common/Box";
 import { useRouter } from "next/router";
-
-function UserCard(): ReactElement {
-  const {
-    query: { profile },
-  } = useRouter();
-
-  const { data: userData } = useSWR(String(profile), () =>
-    getGithubProfile(String(profile))
-  );
-
-  return (
-    <div>
-      <img src={userData?.avatar_url} />
-    </div>
-  );
-}
+import ProfileCard from "./ProfileCard";
 
 interface Props {
   theme: ThemeType;
@@ -46,7 +29,7 @@ function GithubProfileFinder({ theme }: Props): ReactElement {
     <Box title="Github Profile Finder" theme={theme}>
       <form onSubmit={handleSubmit}>
         <input value={nickname} onChange={handleChange} />
-        <UserCard />
+        <ProfileCard />
       </form>
     </Box>
   );
