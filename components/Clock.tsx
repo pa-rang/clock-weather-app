@@ -32,7 +32,7 @@ const Styled = {
     transform: ${({ hourDegree }) => `rotate(${hourDegree}deg)`};
   `,
 
-  MunuteHand: styled.div<{ minuteDegree: number; theme: ThemeType }>`
+  MinuteHand: styled.div<{ minuteDegree: number; theme: ThemeType }>`
     top: 98px;
     left: 20px;
     width: 80px;
@@ -71,7 +71,7 @@ function Clock(): ReactElement {
     <Box title="시계" center>
       <Styled.Root theme={theme}>
         <Styled.HourHand hourDegree={hourDegree} theme={theme} />
-        <Styled.MunuteHand minuteDegree={minuteDegree} theme={theme} />
+        <Styled.MinuteHand minuteDegree={minuteDegree} theme={theme} />
         <Styled.SecondHand secondDegree={secondDegree} theme={theme} />
       </Styled.Root>
     </Box>
