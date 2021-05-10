@@ -10,7 +10,7 @@ const Styled = {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 16px;
     height: 72px;
     div:nth-of-type(2) {
       display: flex;

@@ -5,7 +5,7 @@ import ChangeRegionBtn from "./ChangeRegionBtn";
 import Box from "./common/Box";
 
 function ChangeRegionModal() {
-  return <div style={{ backgroundColor: "red" }}>Modal</div>;
+  return <div>ChangeRegionModal</div>;
 }
 
 function Weather(): ReactElement {
@@ -18,6 +18,7 @@ function Weather(): ReactElement {
 
   const openModal = () => {
     setIsOpenModal(true);
+    alert("개발중...입니다...");
   };
 
   return (
@@ -29,7 +30,6 @@ function Weather(): ReactElement {
           <div>{data?.weather[0].main}</div>
         </div>
       </Box>
-      {isOpenModal && <ChangeRegionModal />}
     </>
   );
 }
