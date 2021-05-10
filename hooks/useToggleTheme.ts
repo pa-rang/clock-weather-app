@@ -1,7 +1,11 @@
 import React from "react";
 import { ThemeType } from "../lib/types";
+import useSWR from "swr";
+import { getTheme } from "../lib/api";
 
 const useToggleTheme = (): [ThemeType, () => void] => {
+  const { data, mutate } = useSWR("theme", getTheme);
+
   const [theme, setTheme] = React.useState<ThemeType>("light");
 
   const toggleTheme = () => {
@@ -14,6 +18,8 @@ const useToggleTheme = (): [ThemeType, () => void] => {
       window.localStorage.setItem("theme", "light");
       setTheme("light");
     }
+
+    // mutate();
   };
 
   React.useEffect(() => {

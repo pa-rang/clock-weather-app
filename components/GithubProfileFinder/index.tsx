@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import ProfileCard from "./ProfileCard";
 import styled from "@emotion/styled";
 import { colors } from "../../lib/constants/colors";
+import useSWR from "swr";
+import { getTheme } from "../../lib/api";
 
 const Styled = {
   Input: styled.input<{ theme: ThemeType }>`
@@ -26,6 +28,9 @@ interface Props {
 function GithubProfileFinder({ theme }: Props): ReactElement {
   const [nickname, setNickname] = React.useState("");
   const router = useRouter();
+
+  const { data } = useSWR("theme", getTheme);
+  console.log("swr theme", data);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = e.target.value;
