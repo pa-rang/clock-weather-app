@@ -6,6 +6,7 @@ import ProfileCard from "./ProfileCard";
 import styled from "@emotion/styled";
 import { colors } from "../../lib/constants/colors";
 import useTheme from "../../hooks/useTheme";
+import { route } from "next/dist/next-server/server/router";
 
 const Styled = {
   Input: styled.input<{ theme: ThemeType }>`
@@ -24,6 +25,9 @@ function GithubProfileFinder(): ReactElement {
   const [nickname, setNickname] = React.useState("");
   const { theme } = useTheme();
   const router = useRouter();
+  const {
+    query: { profile },
+  } = router;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = e.target.value;
@@ -47,7 +51,7 @@ function GithubProfileFinder(): ReactElement {
           theme={theme}
           placeholder="닉네임을 검색해보세요."
         />
-        <ProfileCard />
+        {profile && <ProfileCard profile={profile} />}
       </form>
     </Box>
   );

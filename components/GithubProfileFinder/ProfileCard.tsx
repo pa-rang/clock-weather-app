@@ -1,9 +1,9 @@
-import { useRouter } from "next/router";
 import { ReactElement } from "react";
 import useSWR from "swr";
 import { getGithubProfile } from "../../lib/api";
 import styled from "@emotion/styled";
 import { colors } from "../../lib/constants/colors";
+import { SWR_KEY } from "../../lib/constants/swr-keys";
 
 const Styled = {
   Root: styled.div`
@@ -16,20 +16,25 @@ const Styled = {
   `,
 };
 
-function ProfileCard(): ReactElement {
-  const {
-    query: { profile },
-  } = useRouter();
+interface Props {
+  profile: string | string[];
+}
 
-  const { data: userData } = useSWR(`profile=${String(profile)}`, () =>
-    getGithubProfile(String(profile))
+function ProfileCard({ profile }: Props): ReactElement {
+  const { data: userData, error } = useSWR(
+    SWR_KEY.PROFILE + profile,
+    () => getGithubProfile(String(profile)),
+    {
+      errorRetryCount: 0,
+      revalidateOnFocus: false,
+      shouldRetryOnError: false,
+      revalidateOnMount: false,
+    }
   );
 
-  if (!profile) {
-    return <div>Github 닉네임을 검색해보세요!</div>;
-  }
+  if (error) return <div>에러 발생</div>;
 
-  if (userData === undefined) {
+  if (!userData) {
     return <div>Loading</div>;
   }
 
