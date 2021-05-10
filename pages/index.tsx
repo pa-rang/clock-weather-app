@@ -4,7 +4,6 @@ import Clock from "../components/Clock";
 import GithubProfileFinder from "../components/GithubProfileFinder";
 import Header from "../components/Header";
 import Weather from "../components/Weather";
-import useToggleTheme from "../hooks/useToggleTheme";
 
 const Styled = {
   Root: styled.div`
@@ -14,15 +13,13 @@ const Styled = {
 };
 
 function Home() {
-  const [theme, toggleTheme] = useToggleTheme();
-
   return (
     <>
-      <Header theme={theme} toggleTheme={toggleTheme} />
+      <Header />
       <Styled.Root>
-        <Clock theme={theme} />
-        <Weather theme={theme} />
-        <GithubProfileFinder theme={theme} />
+        <Clock />
+        <Weather />
+        <GithubProfileFinder />
       </Styled.Root>
     </>
   );

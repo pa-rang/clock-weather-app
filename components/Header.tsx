@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { colors } from "../lib/constants/colors";
 import { css, Global } from "@emotion/react";
 import GoToGithub from "./GoToGithub";
-import { ThemeType } from "../lib/types";
+import useTheme from "../hooks/useTheme";
 
 const Styled = {
   Root: styled.div`
@@ -31,21 +31,22 @@ const Styled = {
   `,
 };
 
-type Props = {
-  theme: ThemeType;
-  toggleTheme: () => void;
-};
-
-function Header({ theme, toggleTheme }: Props): ReactElement {
+function Header(): ReactElement {
+  const { theme, setTheme } = useTheme();
   const backgroundColor = theme === "light" ? "#fff" : "#171717";
   const fontColor = theme === "light" ? "#202020" : "#fff";
+
+  const toggleTheme = () => {
+    if (theme === "dark") setTheme("light");
+    if (theme === "light") setTheme("dark");
+  };
 
   return (
     <Styled.Root>
       <div />
       <div>
-        <GoToGithub theme={theme} />
-        <Styled.DarkModeToggle onClick={() => toggleTheme()}>
+        <GoToGithub />
+        <Styled.DarkModeToggle onClick={toggleTheme}>
           {theme}
         </Styled.DarkModeToggle>
       </div>

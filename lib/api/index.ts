@@ -23,6 +23,7 @@ export const getGithubProfile = async (nickname: string) => {
 export const getTheme = (): ThemeType => {
   const currentTheme = window.localStorage.getItem("theme") as ThemeType | null;
 
+  /** Set Default Theme to Dark */
   if (!currentTheme) {
     window.localStorage.setItem("theme", "dark");
     return "dark";

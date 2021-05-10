@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import styled from "@emotion/styled";
-import { ThemeType } from "../lib/types";
+import useTheme from "../hooks/useTheme";
 
 const Styled = {
   Root: styled.a<{ size: number }>`
@@ -13,14 +13,15 @@ const Styled = {
   `,
 };
 
-type Props = {
-  theme?: ThemeType;
+interface Props {
   size?: number;
-};
+}
 
 const GITHUB_REPO = "https://github.com/pa-rang/clock-weather-app";
 
-function GoToGithub({ theme = "light", size = 24 }: Props): ReactElement {
+function GoToGithub({ size = 24 }: Props): ReactElement {
+  const { theme } = useTheme();
+
   const iconColor = React.useMemo(
     () => (theme === "dark" ? "light" : "black"),
     [theme]

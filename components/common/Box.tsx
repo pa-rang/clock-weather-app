@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { colors } from "../../lib/constants/colors";
 import { ThemeType } from "../../lib/types";
 import { css } from "@emotion/react";
+import useTheme from "../../hooks/useTheme";
 
 const Styled = {
   Root: styled.div<{ theme: ThemeType }>`
@@ -42,13 +43,14 @@ const Styled = {
 
 type Props = {
   title: string;
-  theme: ThemeType;
   children?: React.ReactNode;
   button?: ReactElement;
   center?: boolean;
 };
 
-function Box({ title, children, theme, button, center }: Props): ReactElement {
+function Box({ title, children, button, center }: Props): ReactElement {
+  const { theme } = useTheme();
+
   return (
     <Styled.Root theme={theme}>
       <Styled.Header>

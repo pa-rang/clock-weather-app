@@ -1,18 +1,14 @@
 import React, { ReactElement } from "react";
 import useSWR from "swr";
 import { getCurrentWeather } from "../lib/api";
-import { ThemeType } from "../lib/types";
 import ChangeRegionBtn from "./ChangeRegionBtn";
 import Box from "./common/Box";
 
 function ChangeRegionModal() {
   return <div style={{ backgroundColor: "red" }}>Modal</div>;
 }
-interface Props {
-  theme: ThemeType;
-}
 
-function Weather({ theme }: Props): ReactElement {
+function Weather(): ReactElement {
   const [isOpenModal, setIsOpenModal] = React.useState<boolean>(false);
 
   const { data } = useSWR("/weather", () => getCurrentWeather("seoul"));
@@ -26,11 +22,7 @@ function Weather({ theme }: Props): ReactElement {
 
   return (
     <>
-      <Box
-        title="날씨"
-        theme={theme}
-        button={<ChangeRegionBtn handleClick={openModal} />}
-      >
+      <Box title="날씨" button={<ChangeRegionBtn handleClick={openModal} />}>
         <div>
           <div>{data?.name}</div>
           <div>{temperatures}°C</div>
