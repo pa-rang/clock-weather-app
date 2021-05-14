@@ -4,6 +4,7 @@ import { getGithubProfile } from "../../lib/api";
 import styled from "@emotion/styled";
 import { colors } from "../../lib/constants/colors";
 import { SWR_KEY } from "../../lib/constants/swr-keys";
+import BounceLoader from "react-spinners/BounceLoader";
 
 const Styled = {
   Root: styled.div`
@@ -35,7 +36,11 @@ function ProfileCard({ profile }: Props): ReactElement {
   if (error) return <div>에러 발생</div>;
 
   if (!userData) {
-    return <div>Loading</div>;
+    return (
+      <Styled.Root>
+        <BounceLoader color={colors.primary} />
+      </Styled.Root>
+    );
   }
 
   return (
