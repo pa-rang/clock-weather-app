@@ -4,6 +4,8 @@ import Header from "../components/common/Header";
 import styled from "@emotion/styled";
 import { months } from "../lib/constants/months";
 import { colors } from "../lib/constants/colors";
+import useTheme from "../hooks/useTheme";
+import { ThemeType } from "../lib/types";
 
 const Styled = {
   BoxWrapper: styled.div`
@@ -17,7 +19,7 @@ const Styled = {
     margin-bottom: 16px;
   `,
 
-  MonthSelector: styled.div`
+  MonthSelector: styled.div<{ theme: ThemeType }>`
     display: flex;
     overflow-x: scroll;
     height: 80px;
@@ -28,7 +30,8 @@ const Styled = {
       padding: 8px 16px;
       border-radius: 8px;
       margin-right: 16px;
-      background-color: ${colors.gray80};
+      background-color: ${({ theme }) =>
+        theme === "dark" ? colors.gray80 : colors.gray20};
     }
   `,
 };
@@ -65,11 +68,13 @@ const diaryData = [
 ];
 
 function Diary(): ReactElement {
+  const { theme } = useTheme();
+
   return (
     <>
       <Header />
       <Styled.BoxWrapper>
-        <Styled.MonthSelector>
+        <Styled.MonthSelector theme={theme}>
           {months.map((month) => (
             <div>{month}</div>
           ))}
