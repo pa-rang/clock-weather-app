@@ -57,14 +57,14 @@ function Clock(): ReactElement {
   const { theme } = useTheme();
   const { hour, minute, second } = useCurrentTime();
 
-  const hourDegree = useMemo(() => (hour + minute / 60) * (360 / 12) + 90, [
-    hour,
-    minute,
-  ]);
-  const minuteDegree = useMemo(() => (minute + second / 60) * (360 / 60) + 90, [
-    minute,
-    second,
-  ]);
+  const hourDegree = useMemo(
+    () => (hour + minute / 60) * (360 / 12) + 90,
+    [hour, minute]
+  );
+  const minuteDegree = useMemo(
+    () => (minute + second / 60) * (360 / 60) + 90,
+    [minute, second]
+  );
   const secondDegree = useMemo(() => second * (360 / 60) + 90, [second]);
 
   return (

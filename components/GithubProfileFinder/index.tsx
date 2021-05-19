@@ -6,7 +6,6 @@ import ProfileCard from "./ProfileCard";
 import styled from "@emotion/styled";
 import { colors } from "../../lib/constants/colors";
 import useTheme from "../../hooks/useTheme";
-import { route } from "next/dist/next-server/server/router";
 
 const Styled = {
   Input: styled.input<{ theme: ThemeType }>`
