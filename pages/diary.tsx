@@ -6,6 +6,7 @@ import { months } from "../lib/constants/months";
 import { colors } from "../lib/constants/colors";
 import useTheme from "../hooks/useTheme";
 import { ThemeType } from "../lib/types";
+import { useRouter } from "next/router";
 
 const Styled = {
   BoxWrapper: styled.div`
@@ -69,14 +70,17 @@ const diaryData = [
 
 function Diary(): ReactElement {
   const { theme } = useTheme();
+  const router = useRouter();
 
   return (
     <>
       <Header />
       <Styled.BoxWrapper>
         <Styled.MonthSelector theme={theme}>
-          {months.map((month) => (
-            <div>{month}</div>
+          {months.map((month, index) => (
+            <div onClick={() => router.push(`/diary?month=${index + 1}`)}>
+              {month}
+            </div>
           ))}
         </Styled.MonthSelector>
         {diaryData.map(() => (
