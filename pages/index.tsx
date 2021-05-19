@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import Clock from "../components/Clock";
 import GithubProfileFinder from "../components/GithubProfileFinder";
-import Header from "../components/Header";
+import Header from "../components/common/Header";
 import Weather from "../components/Weather";
 
 const Styled = {
